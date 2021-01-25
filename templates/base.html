@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!--Google Font link-->
+    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Cuprum:400,400i,700,700i|Josefin+Sans:400,600,700|Laila|Libre+Baskerville:400,400i,700|Overlock+SC|Roboto:400,500i,700,700i,900,900i|Tangerine&display=swap" rel="stylesheet">
+    
+    <!--Bootstrap CSS link-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}" type="text/css" />
+
+    <!--Style CSS link-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+    
+    <!--Fontawesome CSS Link-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome.css') }}" type="text/css" />
+    
+    <!--Materialize Icons link-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Materialize CSS link-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.css') }}" type="text/css" />
+    
+    <title>Sima's Recipes</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            
+            <!--Link to index.html with site heading-->
+            <a class="navbar-brand" href="{{ url_for('index') }}">Sima's Recipes</a>
+            
+            <!--Collapsiable button for small link and Navigation bar-->
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+            </button>
+            
+            <!--List of menu options-->
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    
+                    <!--link to recipes route on python file-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('recipes') }}">Recipes</a>
+                    </li>
+                    
+                    <!--link to contact route on python file-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('contact') }}">Contact Us</a>
+                    </li>
+                    
+                    <!--link to chat route on python file-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('chat') }}">Chat</a>
+                    </li>
+                    
+                    <!--link to admin route on python file-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('loginuser') }}">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{{ url_for('static', filename= 'img/Basically-Gojuchang-Chicken-Recipe-Wide.jpg') }}')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Sima's Recipes</h1>
+                        <span class="subheading">Finger licking yummy recipes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.js') }}"></script>
+    
+    <!-- Custom scripts for this template -->
+    <script src="{{ url_for('static', filename='js/clean-blog.js') }}"></script>
+    
+    <!--Fontawesome javascript link-->
+    <script src="https://kit.fontawesome.com/011e87d520.js" crossorigin="anonymous"></script>
+    
+    <!--Materialize javascript link-->
+    <script src="{{ url_for('static', filename='js/materialize.js') }}"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.collapsible').collapsible(); /*Materialize Collapsible jQuery*/
+            $('select').formSelect(); /*Materialize ComboBox option selection jQuery*/
+            $('.datepicker').datepicker(); /*Materialize Date picker jQuery*/
+            $('.fixed-action-btn').floatingActionButton(); /*Materialize floating button jQuery*/
+        });
+    </script>
+    <script src="{{ url_for('static', filename='js/sendemail.js') }}"></script>
+    <!--<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+        <script type="text/javascript">
+        (function(){
+            emailjs.init("user_XAGJLBFyU2Ou31af5eTyT");
+        })();
+    </script>
+    
+</body>
+</html>
